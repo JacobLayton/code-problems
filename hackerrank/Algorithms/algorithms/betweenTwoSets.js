@@ -1,62 +1,34 @@
 function getTotalX(a, b) {
-  // let products = [a[a.length-1]];
-  // let minFactor = a[0] * a[a.length - 1];
-  // while (minFactor <= b[0]) {
-  //     products.push(minFactor);
-  //     minFactor += minFactor;
-  // }
-  // console.log(products);
-  // for (let i = 0; i < products.length; i++) {
-  //     for (let j = 0; j < a.length; i++) {
-  //         if (products[i] % a[j] != 0) {
-  //             products.splice(i, 1)
-  //         }
-  //     }
-  // }
-  let lastA = a[a.length - 1];
-  let products = [];
-  let newProducts = [];
+  // calculate aLast integer
+  const aLast = a[a.length - 1];
+  // calculate bFirst integer
+  const bFirst = b[0];
 
-  // if (a.length === 0) {
-  //     return 0;
-  // } else if (a.length === 1) {
-  //     for (let i = 0; i < b.length; i++) {
-  //         if (b[i] % a[0] !== 0) {
-  //             return 0
-  //         }
-  //     }
-  //     return 1;
-  // }
-
-  while (lastA <= b[0]) {
-    products.push(lastA);
-    lastA += a[a.length - 1];
-  }
-
-  for (let i = 0; i <= products.length; i++) {
-    if (products[i] % a[0] === 0) {
-      newProducts.push(products[i]);
+  // check which number(s) between aLast and bFist are divided evenly into and put into a new array
+  const arrTemp = [];
+  for (let i = aLast; i <= bFirst; i++) {
+    let flagA = true;
+    for (const elementA of a) {
+      if (i % elementA !== 0) {
+        flagA = false;
+      }
+    }
+    if (flagA) {
+      arrTemp.push(i);
     }
   }
 
-  // let factors = newProducts;
-  // for (let j = 0; j < newProducts.length; j++) {
-  //     for (let k = 0; k < b.length; k++) {
-  //         if (b[k] % newProducts[j] != 0) {
-  //             newProducts.splice(j, 1);
-  //         }
-  //     }
-  // }
+  // check which numbers divide new array elements evenly into and put into a result array
   const arrResult = [];
-  for (let i = 0; i < newProducts.length; i++) {
+  for (let i = 0; i < arrTemp.length; i++) {
     let flagB = true;
     for (const elementB of b) {
-      if (elementB % newProducts[i] !== 0) {
+      if (elementB % arrTemp[i] !== 0) {
         flagB = false;
       }
     }
     if (flagB) {
-      arrResult.push(newProducts[i]);
+      arrResult.push(arrTemp[i]);
     }
   }
 
