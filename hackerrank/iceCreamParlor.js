@@ -2,7 +2,7 @@
 
 // Complete the function whatFlavors in the editor below. It must determine the two flavors they will purchase and print them as two space-separated integers on a line.
 
-https: function whatFlavors(costs, money) {
+function whatFlavors(costs, money) {
   const compliments = {};
 
   for (let i = 0; i < costs.length; i++) {
