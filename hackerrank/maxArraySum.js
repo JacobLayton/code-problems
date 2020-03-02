@@ -22,3 +22,5 @@ function maxSubsetSum(arr) {
 console.log(maxSubsetSum([ 3, 7, 4, 6, 5 ])); // Should return 13
 console.log(maxSubsetSum([ 2, 1, 5, 8, 4 ])); // Should Return 11
 console.log(maxSubsetSum([ 3, 5, -7, 8, 10 ])); // Should return 15
+
+// done
